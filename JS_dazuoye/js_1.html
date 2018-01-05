@@ -1,0 +1,196 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>大作业</title>
+<style type="text/css">
+body{background-color: silver;}
+*{margin:0; padding:0}
+#nav{width:1000px; margin:50px;}
+#nav h3{ cursor:pointer; line-height:30px; height:30px; background-color:#000000; color:#fff;float: left; }
+#nav a{display:block; line-height:24px;color:#666666}
+#nav a:hover{background-color:#eee; color:#000;}
+#nav div{display:none; border:1px solid #000; border-top:none}
+#must{width: 1300px;height: 400px;  margin-bottom: 10px; }
+#need{width: 450px;margin-bottom: 10px;float: left;}
+#like{width: 300px;margin-left: 150px;margin-top: 20px; font-size: 20px;float: left;}
+#can{width: 300px;margin-left: 20px;float: left;margin-top: 10px;}
+}
+ 
+
+ul,ol,li{list-style:none;} 
+input,button{margin:0;font-size:12px;vertical-align:middle;} 
+ 
+table{border-collapse:collapse;border-spacing:0;} 
+ .box{ width:420px; margin:20px auto; position:relative; overflow:hidden; text-align:left;} 
+.box img{border:0px; width:420px;} 
+.big{ width:100%; float:left; height:196px; overflow:hidden; margin-bottom:2px;} 
+.big a{ display:none;} 
+.big span{ position:absolute; left:0; top:167px; font-size:13px; color:#fff; z-index:11; height:30px; line-height:30px; text-indent:1em; width:100%; )} 
+.num{ width:424px; margin-right:-24px; float:left; height:53px; padding-top:2px;} 
+.num li{ width:99px; padding-top:5px; padding-left:1px; cursor:pointer; float:left; margin-right:6px;height:48px;} 
+.num img{ width:98px;} 
+.num li.on{ background:url(../images/bg01.gif) no-repeat 0 0;} 
+.txtbg{ position:absolute; left:0; top:167px; width:100%; height:30px; background:#000; opacity:0.5;filter:alpha(opacity=50); z-index:10;} 
+ 
+ .int{ height: 50px;  width: 600px;margin-left: : 300px; }
+ label{ width: 200px; margin-right: 20px; }
+ .high{ color: red; }
+ .msg{ font-size: 13px; }
+ .onError{ color: red; }
+ .onSuccess{ color: green; }
+</style> 
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+</style>
+
+
+
+
+
+
+<script type="text/javascript">
+var timer; 
+var i=-1; 
+var offset=3000; 
+function roll(){ 
+i++; 
+if(i>3){ 
+i=0; 
+} 
+slide(i); 
+timer=setTimeout(roll,offset) 
+} 
+function slide(i){ 
+$('.big a').eq(i).fadeIn().siblings().hide(); 
+$('.num li').eq(i).siblings().removeClass('on'); 
+$('.num li').eq(i).addClass('on'); 
+} 
+function stopBig(){ 
+$('.big').hover(function(){ 
+clearTimeout(timer); 
+},function(){ 
+timer=setTimeout(roll,offset); 
+}); 
+} 
+function stoproll(){ 
+$('.num li').hover(function(){ 
+clearTimeout(timer); 
+i=$(this).index(); 
+slide(i); 
+},function(){ 
+timer=setTimeout(roll,offset); 
+}) 
+} 
+$(function(){ 
+roll(); 
+stoproll(); 
+stopBig() 
+}) 
+function $(id){return document.getElementById(id)}
+window.onload = function(){
+ $("nav").onclick = function(e){
+  var src = e?e.target:event.srcElement;
+  if(src.tagName == "H3"){
+   var next = src.nextElementSibling || src.nextSibling;
+   next.style.display = (next.style.display =="block")?"none":"block";
+  }
+ }
+}
+</script>
+</head>
+
+<body>
+<div id="header">
+	<img src="pictures/bg1.png">
+ 
+<div id="nav">
+   <h3>游戏资料&nbsp;|&nbsp;</h3>  
+                        <div>
+                        <a href="#"> </a></br></br>
+                             <a href="#"> 新手资料</a> </br>
+                             <a href="#"> 新客户端</a> </br>
+                             <a href="#"> 轮换模式</a> </br>
+                        </div>
+                         
+                        <h3>商城/合作&nbsp;|&nbsp;</h3> 
+                        <div>
+                         <a href="#"> </a></br></br>
+                            <a href="#">最新英雄 </a></br>
+                            <a href="#">最新皮肤 </a></br>
+                            <a href="#">合作伙伴 </a></br>
+                        </div>
+                         
+                        <h3>用户互动&nbsp;|&nbsp;</h3> 
+                        <div>
+                         <a href="#"> </a></br></br>
+                            <a href="#">官方微博 </a></br>
+                            <a href="#">领奖中心</a></br>
+                            <a href="#">玩家论坛</a></br>
+
+                        </div>
+                         
+                        <h3>赛事中心&nbsp;|&nbsp;</h3> 
+                        <div>
+                         <a href="#"> </a></br></br>
+                            <a href="#">德玛西亚 </a></br>
+                            <a href="#">城市线赛 </a></br>
+                            <a href="#">世界总决赛 </a></br>
+                        </div>
+                        <h3>自助系统&nbsp;|&nbsp;</h3> 
+                        
+                        <input type="text"/ name="输入框" height="20px;" width="140px;" style="background-color: #f8f5ee;">
+                        <input type="button" height="21px;" width="44px;" value="搜索" style="background-color: #000;border: 1px solid #f8f5ee;color: #fff;">
+ </div>            
+</div>
+<div id="must">
+	<div id="need">
+		<div class="box"> 
+<div class="txtbg"> </div> 
+<div class="big"> 
+<a href="#" style="display:block"><img src="pictures/1.png" /><span>标题1</span></a> 
+<a href="#"><img src="pictures/2.png" /><span>标题2</span></a> 
+<a href="#"><img src="pictures/3.png" /><span>标题3</span></a> 
+<a href="#"><img src="pictures/4.png" /><span>标题4/span></a> 
+</div> 
+<ul class="num"> 
+<li class="on"><img src="pictures/1.png"/></li> 
+<li><img src="pictures/2.png"/></li> 
+<li><img src="pictures/3.png"/></li> 
+<li><img src="pictures/4.png"/></li> 
+</ul> 
+</div> 
+	</div>
+	<div id="like">
+	 <a href="#">综合新闻</a> </br>
+                        <a href="#">最新公告</a></br>
+                        <a href="#">赛事新闻</a> </br>
+                        <a href="#">论坛公告</a> </br>
+                        <a href="#">周免英雄</a> </br> 
+                        <a href="#">最新英雄</a></br>
+	</div>
+	<div id="can">
+	用户登录：
+		<form method="post" action="">
+ <div class="int">
+  <label for="name">名称：</label>
+  <input type="text" id="name" class="required" />
+ </div>
+ <div class="int">
+  <label for="email">邮箱：</label>
+  <input type="text" id="email" class="required" />
+ </div>
+ <div class="int">
+  <label for="address">地址：</label>
+  <input type="text" id="personinfo" />
+ </div>
+ <div class="int">
+  <input type="submit" value="提交" id="send" style="margin-left: 70px;" />
+  <input type="reset" value="重置" id="res" />
+ </div>
+ </form>
+ <script type="text/javascript"></script>
+	</div>
+</div>
+<img src="pictures/5.png">
+</body>
+</html> 
